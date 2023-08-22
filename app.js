@@ -11,14 +11,12 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const url = 'mongodb+srv://amaan-admin:test123@cluster0-ghxgg.mongodb.net/projectDB';
+const url = 'mongodb+srv://promax11:@promax11@cluster0.vgyms6r.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(
     url, 
     { 
         useNewUrlParser: true, 
         useUnifiedTopology: true,
-        
-        
     }
 )
 const postSchema = {
@@ -35,7 +33,7 @@ const postSchema = {
    
   };
   const lostSchema = {
-   t : String,
+    t : String,
     d : String,
     l : String,
    
@@ -64,9 +62,6 @@ app.get("/cssub",function(req,res){
 });
 app.get("/itsub",function(req,res){
     res.render("itsub");
-});
-app.get("/civilsub",function(req,res){
-    res.render("civilsub");
 });
 app.get("/mechsub",function(req,res){
     res.render("mechsub");
@@ -98,14 +93,7 @@ app.get("/itphy",function(req,res){
 });
 
 
-app.get("/civilphy",function(req,res){
-    Post.find({subject:'physics',class:'CIVIL'},function(err,posts){
-    res.render("civiphy",{
-        posts: posts
 
-    });
-});
-});
 
 
 app.get("/cscpp",function(req,res){
@@ -126,14 +114,7 @@ app.get("/itcpp",function(req,res){
 });
 });
 
-app.get("/civilcpp",function(req,res){
-    Post.find({subject:'cpp',subject:'CIVIL'},function(err,posts){
-    res.render("civilcpp",{
-        posts: posts
 
-    });
-});
-});
 
 
 
